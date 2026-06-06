@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
-import { Audiowide } from "next/font/google";
+import { Audiowide, Inter } from "next/font/google";
 import "./globals.css";
+import "@/app/ui/Appbar";
+import Appbar from "@/app/ui/Appbar";
+import { cn } from "@/lib/utils";
+
+const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
 const audiowide = Audiowide({
 	weight: "400",
@@ -18,8 +23,22 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en" className={`${audiowide.className} h-full antialiased`}>
-			<body className="min-h-full flex flex-col">{children}</body>
+		<html
+			lang="en"
+			className={cn(
+				"h-full",
+				"antialiased",
+				"flex",
+				"flex-col",
+				audiowide.className,
+				"font-sans",
+				inter.variable,
+			)}
+		>
+			<body className="min-h-full flex-1 flex flex-col ">
+				<Appbar></Appbar>
+				{children}
+			</body>
 		</html>
 	);
 }
