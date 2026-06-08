@@ -1,3 +1,8 @@
+import { Featured } from "./ui/Featured";
 export default function Home() {
-  return <div></div>;
+  return (
+    <div>
+      <Featured></Featured>
+    </div>
+  );
 }
