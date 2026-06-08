@@ -1,8 +1,11 @@
-import { Featured } from "./ui/Featured";
+import { Suspense } from "react";
+import { LatestNews } from "./ui/LatestNews";
 export default function Home() {
   return (
     <div>
-      <Featured></Featured>
+      <Suspense fallback=<div>Loading news</div>>
+        <LatestNews></LatestNews>
+      </Suspense>
     </div>
   );
 }

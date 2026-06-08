@@ -20,6 +20,9 @@ importers:
       embla-carousel-react:
         specifier: ^8.6.0
         version: 8.6.0(react@19.2.4)
+      guardian-js:
+        specifier: ^5.0.0
+        version: 5.0.0
       ky:
         specifier: ^2.0.2
         version: 2.0.2
@@ -2450,6 +2453,10 @@ packages:
   graphql@16.14.1:
     resolution: {integrity: sha512-cQOsSMS/IrDz82PVyRDvf/Q1F/bRbBVjJlh+xYOkI1qw2bWRvWGiWc+m2O0d6l4Bt1fyY+8kzJ8JFWGJqNeDBg==}
     engines: {node: ^12.22.0 || ^14.16.0 || ^16.0.0 || >=17.0.0}
+
+  guardian-js@5.0.0:
+    resolution: {integrity: sha512-PhaviO6xuMRiXlCz8lEFdCMZ4ww00c3M08wcKSQtjwffMC394lYTwxedEubrUZxsVK5g3D0yjkQVIXeDWQBO0Q==}
+    engines: {node: '>=18.0.0'}
 
   has-bigints@1.1.0:
     resolution: {integrity: sha512-R3pbpkcIqv2Pm3dUwgjclDRVmWpTJW2DcMzcIhEXEx1oh/CEMObMm3KLmRJOdvhM7o4uQBnwr8pzRK2sJWIqfg==}
@@ -6350,6 +6357,8 @@ snapshots:
   graceful-fs@4.2.11: {}
 
   graphql@16.14.1: {}
+
+  guardian-js@5.0.0: {}
 
   has-bigints@1.1.0: {}
 

@@ -13,6 +13,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "embla-carousel-react": "^8.6.0",
+    "guardian-js": "^5.0.0",
     "ky": "^2.0.2",
     "lucide-react": "^1.17.0",
     "next": "16.2.7",

@@ -1,18 +1,77 @@
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import Image from "next/image";
-export const Featured = () => {
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { Separator } from "@/components/ui/separator";
+import { getAllContent } from "../lib/guardian";
+
+export const Featured = async () => {
+  const response = await getAllContent();
+
   return (
-    <Card className="w-max">
+    <Carousel>
+      <CarouselContent>
+        {response.results.map((result) => {
+          <CarouselItem key={result.id}>
+            <div>
+              <span>Featured News</span>
+              <Separator></Separator>
+              <FeaturedNewsCard
+                imageUrl={result.fields.thumbnail}
+                imageAlt={result.fields?.headline ?? result.webTitle}
+                newsTitle={result.fields?.headline}
+                authour={result.fields?.byline}
+                publishedAt={result.webPublicationDate}
+              />
+            </div>
+          </CarouselItem>;
+        })}
+      </CarouselContent>
+
+      <CarouselPrevious />
+      <CarouselNext />
+    </Carousel>
+  );
+};
+
+export const FeaturedNewsCard = ({
+  imageUrl,
+  imageAlt,
+  newsTitle,
+  authour,
+  publishedAt,
+}: {
+  imageUrl: string;
+  imageAlt: string;
+  newsTitle: string;
+  authour: string;
+  publishedAt: string;
+}) => {
+  return (
+    <Card className="w-full h-fit">
+      <CardHeader>
+        <img className="rounded-t-2xl" src={imageUrl} alt={imageAlt} />
+      </CardHeader>
       <CardContent>
-        <p className="relative top-3 left-5 text-white">Featured</p>
-        <img
-          width={400}
-          height={400}
-          src="https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1200-630,f_auto,q_auto:best/rockcms/2026-04/260408-doj-sign-gk-faacea.jpg"
-          alt="/"
-          className="rounded-t-xl"
-        ></img>
+        <span className="text-sm">{newsTitle}</span>
+        <Separator className="font-bold my-2" />
       </CardContent>
+
+      <CardFooter>
+        <div className="flex flex-row flex-1 justify-between">
+          <span className="font-light">By {authour}</span>
+          <span className="font-light">{publishedAt}</span>
+        </div>
+      </CardFooter>
     </Card>
   );
 };
