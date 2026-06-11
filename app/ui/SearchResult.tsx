@@ -1,28 +1,26 @@
-import { Separator } from "@/components/ui/separator";
 import { NewsCard } from "./NewsCard";
-import { getAllContent } from "../lib/guardian";
-import { Card } from "@/components/ui/card";
+import { getBySearch } from "../lib/guardian";
 
-export const LatestNews = async () => {
-  const response = await getAllContent();
+export const SearchResults = async ({
+  params,
+}: {
+  params: Promise<{ search: string }>;
+}) => {
+  const { search } = await params;
+  const response = await getBySearch(search);
 
   return (
     <div className="flex flex-col">
-      <span className="flex px-5 justify-center py-4 text-2xl">
-        Latest News
-      </span>
-      <Separator />
-
-      <div className="grid grid-cols-4  gap-2">
+      <div className="grid grid-cols-3 gap-2">
         {response.results.map((result) => (
           <NewsCard
-            webUrl={result.webUrl}
             key={result.id}
             imageUrl={result.fields.thumbnail}
             imageAlt={result.fields?.headline ?? result.webTitle}
             authour={result.fields.byline}
             publishedAt={result.webPublicationDate}
             newsTitle={result.fields?.headline ?? result.fields.webTitle}
+            webUrl={result.webUrl ?? "/"}
           ></NewsCard>
         ))}
       </div>

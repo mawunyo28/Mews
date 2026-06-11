@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { LatestSection } from "../ui/LatestStory";
+import { Loading } from "../ui/Loading";
 
 const Section = async ({
   params,
@@ -7,7 +8,7 @@ const Section = async ({
   params: Promise<{ section: string }>;
 }) => {
   return (
-    <Suspense fallback=<div>Loading Stories</div>>
+    <Suspense fallback=<Loading></Loading>>
       <LatestSection params={params}></LatestSection>
     </Suspense>
   );

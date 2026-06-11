@@ -26,6 +26,7 @@ export const LatestSection = async ({
             authour={result.fields.byline}
             publishedAt={result.webPublicationDate}
             newsTitle={result.fields?.headline ?? result.fields.webTitle}
+            webUrl={result.webUrl ?? "/"}
           ></NewsCard>
         ))}
       </div>

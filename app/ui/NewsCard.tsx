@@ -6,6 +6,7 @@ import {
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
+import Link from "next/link";
 
 export const NewsCard = ({
   imageUrl,
@@ -13,21 +14,26 @@ export const NewsCard = ({
   newsTitle,
   authour,
   publishedAt,
+  webUrl,
 }: {
   imageUrl: string;
   imageAlt: string;
   newsTitle: string;
   publishedAt: string;
   authour: string;
+  webUrl: string;
 }) => {
   return (
     <Card className="w-101 h-fit">
       <CardHeader>
         <img className="rounded-t-2xl" src={imageUrl} alt={imageAlt} />
       </CardHeader>
+
       <CardContent>
-        <span className="text-sm">{newsTitle}</span>
-        <Separator className="font-bold my-2" />
+        <Link href={webUrl ?? "/"}>
+          <span className="text-sm">{newsTitle}</span>
+          <Separator className="font-bold my-2" />
+        </Link>
       </CardContent>
 
       <CardFooter>

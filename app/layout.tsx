@@ -41,7 +41,7 @@ export default function RootLayout({
 					<Appbar></Appbar>
 				</Suspense>
 
-				{children}
+				<main className="flex flex-1 flex-col">{children}</main>
 			</body>
 		</html>
 	);

@@ -33,6 +33,15 @@ export const getBySection = async (section: string, pageSize = 30) => {
   return data;
 };
 
+export const getBySearch = async (query: string) => {
+  const data = await guardian.content.search(query, {
+    showFields,
+    orderBy: "relevance",
+  });
+
+  return data;
+};
+
 export const getAllContent = async (pageSize = 30) => {
   const data = await guardian.content.search("", {
     showFields,

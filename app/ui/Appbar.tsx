@@ -4,11 +4,18 @@ import { CircleUserRound } from "lucide-react";
 import Link from "next/link";
 import { getSections } from "../lib/guardian";
 import { Separator } from "@/components/ui/separator";
+import { redirect } from "next/navigation";
 const Appbar = async () => {
   // "use cache";
   const data = await getSections();
 
   const results = data.response.results.slice(1, 6);
+
+  async function handleSearch(formData: FormData) {
+    "use server";
+    const query = formData.get("q")?.toString().trim();
+    if (query) redirect(`/search/${query}`);
+  }
 
   // console.log(results);
 
@@ -20,18 +27,32 @@ const Appbar = async () => {
           <span className="text-4xl ">Mews</span>
         </Link>
         {/* <div className="flex gap-4 justify-between cursor-pointer"> */}
-        {results.map((section) => (
-          <Link key={section.id.toString()} href={"/" + section.id.toString()}>
-            <span>{section.webTitle.split(" ")[0]}</span>
-          </Link>
-        ))}
+        {results.map(
+          (section: {
+            id: string;
+            webTitle: string;
+            webUrl: string;
+            apiUrl: string;
+            editions?: [string | undefined];
+          }) => (
+            <Link
+              key={section.id.toString()}
+              href={"/" + section.id.toString()}
+            >
+              <span>{section.webTitle.split(" ")[0]}</span>
+            </Link>
+          ),
+        )}
         {/* </div> */}
 
-        <Input placeholder="Search" type="text"></Input>
-        <Button variant="outline" arial-label="signin">
+        <form action={handleSearch} className="w-full">
+          <Input placeholder="Search" type="text" name="q"></Input>
+        </form>
+
+        <Button variant="outline" arial-label="signin" className="hidden">
           SignIn
         </Button>
-        <Button>
+        <Button className="hidden">
           <CircleUserRound />
         </Button>
       </div>
