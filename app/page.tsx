@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+ 
 import { LatestNews } from "./ui/LatestNews";
 import { Loading } from "./ui/Loading";
 export default function Home() {

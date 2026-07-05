@@ -30,3 +30,5 @@ Well I did this for hackclub of course
 I know there are a few bugs but it seems for the life of me I can't fix them. But at least it does fetch the news.
 
 
+__I used AI to generate the favicon__
+
