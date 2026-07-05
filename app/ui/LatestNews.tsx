@@ -14,7 +14,7 @@ export const LatestNews = async () => {
       <Separator />
 
       <div className="grid grid-cols-4  gap-2">
-        {response.results.map((result) => (
+        {response.results.map((result: any) => (
           <NewsCard
             webUrl={result.webUrl}
             key={result.id}

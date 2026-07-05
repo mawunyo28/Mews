@@ -20,7 +20,7 @@ export const Featured = async () => {
   return (
     <Carousel>
       <CarouselContent>
-        {response.results.map((result) => {
+        {response.results.map((result: any) => {
           <CarouselItem key={result.id}>
             <div>
               <span>Featured News</span>

@@ -18,7 +18,7 @@ export const LatestSection = async ({
       <Separator />
 
       <div className="grid grid-cols-4  gap-2">
-        {response.results.map((result) => (
+        {response.results.map((result: any) => (
           <NewsCard
             key={result.id}
             imageUrl={result.fields.thumbnail}

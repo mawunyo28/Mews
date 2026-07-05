@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# [Mews](https://mews.com)
 
-First, run the development server:
+Mews is a website -- how do I describe -- Well, please see for yourself
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+![Home Page](./images/mews.png)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Pages
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Sections
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The sections are gotten from the api and displayed in the navbar
 
-## Learn More
+![Section](./images/category1.png)
+![Section](./images/category2.png)
+![Section](./images/category3.png)
 
-To learn more about Next.js, take a look at the following resources:
+## Search
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The search works by fetching from the api, news articles that contain the phrase or something similar
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+![Search](./images/search1.png)
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Reasoning
+
+Well I did this for hackclub of course
+
+I know there are a few bugs but it seems for the life of me I can't fix them. But at least it does fetch the news.
+
+
