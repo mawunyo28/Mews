@@ -9,7 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@gnews-io/gnews-io-js": "^3.0.0",
+    // "@gnews-io/gnews-io-js": "^3.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "embla-carousel-react": "^8.6.0",
